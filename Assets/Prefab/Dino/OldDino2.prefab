@@ -554,7 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4247340880232544135}
   m_Layer: 0
-  m_Name: NewDino
+  m_Name: OldDino2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

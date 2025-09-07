@@ -5,10 +5,12 @@ namespace Player {
     public class PlayerMovement : MonoBehaviour
     {
         public Rigidbody rb;
+        [Header("Platforming")]
+        public float RunningSpeed;
 
         [Header("Swimming")]
-        public bool Swimming;
-        public float Speed;
+        private bool m_swimming = true;
+        public float SwimmingSpeed;
 
         [Header("Jumping")]
         public float jumpForce = 7f;
@@ -17,7 +19,7 @@ namespace Player {
         public float groundRadius = 0.2f;
 
         public float coyoteTime = 0.1f, jumpBufferTime = 0.1f;
-        float coyoteTimer, jumpBufferTimer;
+        private float coyoteTimer, jumpBufferTimer;
 
         [Header("Hurting variables")]
         private bool hurting;
@@ -46,7 +48,7 @@ namespace Player {
             }
             if (movementImpaired) return;
             StandardControl(dt);
-            if (Swimming == true)
+            if (m_swimming == true)
             {
                 SwimmingControl(dt);
             } else
@@ -74,13 +76,18 @@ namespace Player {
 
         private void StandardControl(float dt)
         {
-            float h = Input.GetAxis("Horizontal") * Speed;
+            var tmpSpeed = RunningSpeed;
+            if (m_swimming)
+            {
+                tmpSpeed = SwimmingSpeed;
+            }
+            float h = Input.GetAxis("Horizontal") * tmpSpeed;
             transform.Translate(h * dt, 0, 0);
         }
 
         private void SwimmingControl(float dt)
         {
-            float v = Input.GetAxis("Vertical") * Speed;
+            float v = Input.GetAxis("Vertical") * SwimmingSpeed;
 
             transform.Translate(0, v * dt, 0);
         }
@@ -102,13 +109,13 @@ namespace Player {
 
         public void StartJumpPhase()
         {
-            Swimming = false;
+            m_swimming = false;
             rb.useGravity = true;
         }
 
         public void StartSwimPhase()
         {
-            Swimming = true;
+            m_swimming = true;
             rb.useGravity = false;
         }
 
