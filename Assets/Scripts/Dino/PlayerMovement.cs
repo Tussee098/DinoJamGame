@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Player {
@@ -82,14 +81,15 @@ namespace Player {
                 tmpSpeed = SwimmingSpeed;
             }
             float h = Input.GetAxis("Horizontal") * tmpSpeed;
-            transform.Translate(h * dt, 0, 0);
+
+            rb.linearVelocity = new Vector3(h * dt, rb.linearVelocity.y, rb.linearVelocity.z);
         }
 
         private void SwimmingControl(float dt)
         {
             float v = Input.GetAxis("Vertical") * SwimmingSpeed;
 
-            transform.Translate(0, v * dt, 0);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, v * dt, rb.linearVelocity.z);
         }
         private void JumpingControl()
         {
