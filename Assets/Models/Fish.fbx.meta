@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 064ed29d3e4010847aa04eb097270543
+guid: 3bdb6c13e1311d446b95163813bff55f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M.DinoBody
-    second: {fileID: 2100000, guid: b896ad9593c4d744a80789414e4fc7a6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M.DinoFaceSprites
-    second: {fileID: 2100000, guid: 162eee89a2828e84aadafb66235e15b1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M.DinoTailSpin
-    second: {fileID: 2100000, guid: 5b7c3c80ecdf67e4a9d55da19c200856, type: 2}
+      name: M.Hazards
+    second: {fileID: 2100000, guid: da9d51ab715e2854399e7492c7fd3792, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
