@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: c81674f3626ad254e8a712545fa70d52
+guid: 3bdb6c13e1311d446b95163813bff55f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M.Hazards
+    second: {fileID: 2100000, guid: da9d51ab715e2854399e7492c7fd3792, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
