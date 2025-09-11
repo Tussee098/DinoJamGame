@@ -19,6 +19,7 @@ namespace Player {
 
         public float coyoteTime = 0.1f, jumpBufferTime = 0.1f;
         private float coyoteTimer, jumpBufferTimer;
+        private bool m_isFlutterJumping;
 
         [Header("Hurting variables")]
         private bool hurting;
@@ -53,6 +54,11 @@ namespace Player {
             } else
             {
                 JumpingControl();
+            }
+
+            if(m_isFlutterJumping)
+            {
+                FlutterJump();
             }
             if (Input.GetButtonDown("Pickup"))
             {
@@ -93,18 +99,51 @@ namespace Player {
         }
         private void JumpingControl()
         {
-            if (Input.GetButtonDown("Jump")) jumpBufferTimer = jumpBufferTime;
-
+            if (Input.GetButtonDown("Jump"))
+            {
+                jumpBufferTimer = jumpBufferTime;
+            }
             bool grounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask);
-            if (grounded) coyoteTimer = coyoteTime; else coyoteTimer -= Time.deltaTime;
-            if (jumpBufferTimer > 0f) jumpBufferTimer -= Time.deltaTime;
 
-            if (jumpBufferTimer > 0f && coyoteTimer > 0f)
+            if (grounded) // Reset coyoteTimeer
+            {
+                coyoteTimer = coyoteTime;
+                m_isFlutterJumping = false;
+            }
+            else coyoteTimer -= Time.deltaTime; //Update coyote timer
+
+            if (jumpBufferTimer > 0f) jumpBufferTimer -= Time.deltaTime; // Update buffertimer
+
+            if (!grounded && !m_isFlutterJumping && jumpBufferTimer > 0f)
+            {
+                m_isFlutterJumping = true;
+            }
+
+            else if (jumpBufferTimer > 0f && coyoteTimer > 0f) // Check if normal jump or flutterJump
             {
                 Vector3 v = rb.linearVelocity; v.y = 0f; rb.linearVelocity = v;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 jumpBufferTimer = 0f; coyoteTimer = 0f;
             }
+        }
+
+        private void FlutterJump()
+        {
+            Debug.Log("Fluttering");
+            const float maxFallSpeed = -3.0f;
+            const float flutterHz = 10.0f;
+            const float flutterKick = 6.0f;
+
+            var v = rb.linearVelocity;
+            if (v.y < maxFallSpeed) v.y = maxFallSpeed;
+            rb.linearVelocity = v;
+
+            float pulse = Mathf.Sin(Time.time * flutterHz * 2f * Mathf.PI);
+            if (pulse > 0f)
+            {
+                rb.AddForce(Vector3.up * (flutterKick * pulse * Time.deltaTime), ForceMode.VelocityChange);
+            }
+            
         }
 
         public void StartJumpPhase()
@@ -127,7 +166,6 @@ namespace Player {
             gameObject.GetComponent<HurtableDino>().enabled = false;
             // Disable HurtBox
             // Todo - Change face
-
         }
 
         private void ResetIframesTimer()
