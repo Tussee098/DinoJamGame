@@ -30,6 +30,13 @@ namespace Player {
         private float m_iFramesTimer;
         private float m_movementLossTimer;
 
+        [Header("Fluttering")]
+        public float maxFallSpeed = -3.0f;
+        public float flutterHz = 10.0f;
+        public float flutterKick = 10.0f;
+        public float flutterTime;
+        private float flutterTimer = 0f;
+
         // Update is called once per frame
         void Update()
         {
@@ -114,9 +121,10 @@ namespace Player {
 
             if (jumpBufferTimer > 0f) jumpBufferTimer -= Time.deltaTime; // Update buffertimer
 
-            if (!grounded && !m_isFlutterJumping && jumpBufferTimer > 0f)
+            if (!grounded && !m_isFlutterJumping && jumpBufferTimer > 0f && rb.linearVelocity.y < 0f)
             {
                 m_isFlutterJumping = true;
+                flutterTimer = flutterTime;
             }
 
             else if (jumpBufferTimer > 0f && coyoteTimer > 0f) // Check if normal jump or flutterJump
@@ -129,21 +137,18 @@ namespace Player {
 
         private void FlutterJump()
         {
-            Debug.Log("Fluttering");
-            const float maxFallSpeed = -3.0f;
-            const float flutterHz = 10.0f;
-            const float flutterKick = 6.0f;
-
             var v = rb.linearVelocity;
             if (v.y < maxFallSpeed) v.y = maxFallSpeed;
             rb.linearVelocity = v;
 
-            float pulse = Mathf.Sin(Time.time * flutterHz * 2f * Mathf.PI);
+            float pulse = Mathf.Sin(Time.deltaTime * 2f * Mathf.PI);
             if (pulse > 0f)
             {
-                rb.AddForce(Vector3.up * (flutterKick * pulse * Time.deltaTime), ForceMode.VelocityChange);
+                rb.AddForce(Vector3.up * (flutterKick * pulse), ForceMode.VelocityChange);
             }
-            
+
+            flutterTimer -= Time.deltaTime;
+            if (flutterTimer <= 0f) m_isFlutterJumping = false;
         }
 
         public void StartJumpPhase()
