@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player {
@@ -35,8 +36,15 @@ namespace Player {
         public float flutterHz = 10.0f;
         public float flutterKick = 10.0f;
         public float flutterTime;
-        private float flutterTimer = 0f;
+        public int maxflutterCharges;
 
+        private float flutterTimer = 0f;
+        private int m_flutterCharges;
+
+        private void Start()
+        {
+            m_flutterCharges = maxflutterCharges;
+        }
         // Update is called once per frame
         void Update()
         {
@@ -115,15 +123,17 @@ namespace Player {
             if (grounded) // Reset coyoteTimeer
             {
                 coyoteTimer = coyoteTime;
-                m_isFlutterJumping = false;
+                
+                ResetFlutter();
             }
             else coyoteTimer -= Time.deltaTime; //Update coyote timer
 
             if (jumpBufferTimer > 0f) jumpBufferTimer -= Time.deltaTime; // Update buffertimer
 
-            if (!grounded && !m_isFlutterJumping && jumpBufferTimer > 0f && rb.linearVelocity.y < 0f)
+            if (!grounded && !m_isFlutterJumping && jumpBufferTimer > 0f && rb.linearVelocity.y < 0f && m_flutterCharges > 0)
             {
                 m_isFlutterJumping = true;
+                m_flutterCharges -= 1;
                 flutterTimer = flutterTime;
             }
 
@@ -133,6 +143,12 @@ namespace Player {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 jumpBufferTimer = 0f; coyoteTimer = 0f;
             }
+        }
+
+        private void ResetFlutter()
+        {
+            m_isFlutterJumping = false;
+            m_flutterCharges = maxflutterCharges;
         }
 
         private void FlutterJump()
