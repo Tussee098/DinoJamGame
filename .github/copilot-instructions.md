@@ -4,5 +4,5 @@
 - Active game object:
   - Name: Dino
   - Tag: Untagged
-  - Layer: Default
+  - Layer: PlayerDino
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

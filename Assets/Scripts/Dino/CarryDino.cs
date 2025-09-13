@@ -14,6 +14,27 @@ public class CarryDino : MonoBehaviour, ICarrier
     public int CurrentWeight { get; private set; }
     public IPickupable Current { get; private set; }
 
+    private bool IsBoatLayer(int layer) => layer == LayerMask.NameToLayer("Boat");
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (IsBoatLayer(collision.gameObject.layer))
+            OnBoatContact();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (IsBoatLayer(other.gameObject.layer))
+            OnBoatContact();
+    }
+    private void OnBoatContact()
+    {
+        Debug.Log("OnBoatContact");
+        var dinoOxygen = gameObject.GetComponent<DinoOxygen>();
+        var dinoMovement = gameObject.GetComponent<PlayerMovement>();
+        dinoOxygen.ResetOxygen();
+        dinoMovement.StartSwimPhase();
+    }
 
     public bool TryToPickup()
     {
