@@ -11,10 +11,16 @@ public class CarryDino : MonoBehaviour, ICarrier
 
     private readonly Collider2D[] _hits = new Collider2D[8];
 
+    private DinoAnimationBridge m_anim;
     public int CurrentWeight { get; private set; }
     public IPickupable Current { get; private set; }
 
     private bool IsBoatLayer(int layer) => layer == LayerMask.NameToLayer("Boat");
+
+    public void Start()
+    {
+        m_anim = GetComponentInChildren<DinoAnimationBridge>(true);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -67,6 +73,7 @@ public class CarryDino : MonoBehaviour, ICarrier
     private void JumperMovement()
     {
         gameObject.GetComponent<PlayerMovement>().StartJumpPhase();
+        m_anim.StartWalk();
     }
 
     private void SwimmingMovement()

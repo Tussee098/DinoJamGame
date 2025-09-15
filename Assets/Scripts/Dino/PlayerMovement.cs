@@ -21,6 +21,7 @@ namespace Player {
         public float coyoteTime = 0.1f, jumpBufferTime = 0.1f;
         private float coyoteTimer, jumpBufferTimer;
         private bool m_isFlutterJumping;
+        private bool m_inAir;
 
         [Header("Hurting variables")]
         private bool hurting;
@@ -41,9 +42,14 @@ namespace Player {
         private float flutterTimer = 0f;
         private int m_flutterCharges;
 
-        private void Start()
+        private bool m_walking;
+
+        private DinoAnimationBridge m_anim;
+
+        void Start()
         {
             m_flutterCharges = maxflutterCharges;
+            m_anim = GetComponentInChildren<DinoAnimationBridge>(true);
         }
         // Update is called once per frame
         void Update()
@@ -119,19 +125,27 @@ namespace Player {
                 jumpBufferTimer = jumpBufferTime;
             }
             bool grounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask);
-
+            
             if (grounded) // Reset coyoteTimeer
             {
+                Debug.Log("Grounded");
+                if (!m_walking) m_anim.StartLand();
+                m_walking = true;
                 coyoteTimer = coyoteTime;
                 
                 ResetFlutter();
+            } else
+            {
+                coyoteTimer -= Time.deltaTime; //Update coyote timer
+                m_walking = false;
             }
-            else coyoteTimer -= Time.deltaTime; //Update coyote timer
+            
 
             if (jumpBufferTimer > 0f) jumpBufferTimer -= Time.deltaTime; // Update buffertimer
 
             if (!grounded && !m_isFlutterJumping && jumpBufferTimer > 0f && rb.linearVelocity.y < 0f && m_flutterCharges > 0)
             {
+                m_anim.PlayFlutter();
                 m_isFlutterJumping = true;
                 m_flutterCharges -= 1;
                 flutterTimer = flutterTime;
@@ -142,6 +156,7 @@ namespace Player {
                 Vector3 v = rb.linearVelocity; v.y = 0f; rb.linearVelocity = v;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 jumpBufferTimer = 0f; coyoteTimer = 0f;
+                m_anim.PlayJump();
             }
         }
 
@@ -175,6 +190,7 @@ namespace Player {
 
         public void StartSwimPhase()
         {
+            m_anim.StartSwim();
             m_swimming = true;
             rb.useGravity = false;
         }

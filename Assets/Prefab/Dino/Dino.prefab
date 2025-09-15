@@ -235,6 +235,11 @@ MonoBehaviour:
   jumpBufferTime: 0.1
   iFramesTime: 2
   movementLossTime: 0.25
+  maxFallSpeed: -3
+  flutterHz: 10
+  flutterKick: 10
+  flutterTime: 0
+  maxflutterCharges: 0
 --- !u!54 &6470308856954159560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -453,6 +458,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 659135106531085954, guid: 764bb963c0437f140b1200def0f13cb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8463064309236180291}
+    - targetCorrespondingSourceObject: {fileID: 659135106531085954, guid: 764bb963c0437f140b1200def0f13cb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5202019425625988561}
   m_SourcePrefab: {fileID: 100100000, guid: 764bb963c0437f140b1200def0f13cb4, type: 3}
 --- !u!4 &1882851830996053885 stripped
 Transform:
@@ -498,3 +506,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5202019425625988561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650135831040007046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5363ebfaab7273e49a299c88791e011d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
