@@ -91,7 +91,10 @@ namespace Player {
         private void RevertHurting()
         {
             hurting = false;
+            // Activate Hurting
             gameObject.GetComponent<HurtableDino>().enabled = true;
+            // Change face
+            gameObject.GetComponentInChildren<DinoFaceBridge>().SetFace(DinoFaceBridge.FaceEnum.Hurt);
         }
 
         private void UpdateTimers(float dt)
@@ -128,7 +131,6 @@ namespace Player {
             
             if (grounded) // Reset coyoteTimeer
             {
-                Debug.Log("Grounded");
                 if (!m_walking) m_anim.StartLand();
                 m_walking = true;
                 coyoteTimer = coyoteTime;
@@ -197,12 +199,15 @@ namespace Player {
 
         public void Hurt()
         {
+            Debug.Log("hurt");
             ResetIframesTimer();
             hurting = true;
             movementImpaired = true;
-            gameObject.GetComponent<HurtableDino>().enabled = false;
             // Disable HurtBox
-            // Todo - Change face
+            gameObject.GetComponent<HurtableDino>().enabled = false;
+            //Change face
+            gameObject.GetComponentInChildren<DinoFaceBridge>().SetFace(DinoFaceBridge.FaceEnum.Hurt);
+            
         }
 
         private void ResetIframesTimer()
