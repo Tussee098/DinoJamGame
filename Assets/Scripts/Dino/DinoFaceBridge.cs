@@ -6,8 +6,6 @@ public class DinoFaceBridge : MonoBehaviour
 {
     [SerializeField]
     private Material m_mat;
-    [SerializeField]
-    private Texture m_Texture;
 
     public enum FaceEnum
     {
@@ -20,6 +18,7 @@ public class DinoFaceBridge : MonoBehaviour
     public void SetFace(FaceEnum face)
     {
         float offset = 0f;
+        Debug.Log(face);
         switch (face)
         {
             case FaceEnum.Normal:
@@ -43,10 +42,7 @@ public class DinoFaceBridge : MonoBehaviour
 
     private void SetMaterialOffset(float offset)
     {
-        m_mat.SetTextureOffset(m_Texture.name, new Vector2(0f, offset));
+        m_mat.SetTextureOffset("_BaseMap", new Vector2(0f, offset));
     }
 
-    // Optional: expose events for animation callbacks (see section 4)
-    public System.Action<string> OnAnimEvent;
-    public void RaiseEvent(string evt) => OnAnimEvent?.Invoke(evt);
 }
