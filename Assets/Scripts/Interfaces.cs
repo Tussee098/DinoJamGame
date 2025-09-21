@@ -1,9 +1,10 @@
+using Assets.Scripts;
 using UnityEngine;
 
 public interface IPickupable
 {
-    int Weight { get; }
     bool TryPickup(ICarrier instigator);
+    
 }
 
 public interface IHazard
@@ -18,7 +19,7 @@ public interface IHurtable
 }
 public interface ICarrier
 {
+    PickupType pickupType { get; set; }
     bool TryToPickup();
-    int CurrentWeight { get; }
 }
 

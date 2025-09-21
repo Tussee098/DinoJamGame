@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Player;
 using System;
 using UnityEngine;
@@ -12,8 +13,9 @@ public class CarryDino : MonoBehaviour, ICarrier
     private readonly Collider2D[] _hits = new Collider2D[8];
 
     private DinoAnimationBridge m_anim;
-    public int CurrentWeight { get; private set; }
     public IPickupable Current { get; private set; }
+    private PickupType m_PickupType;
+    public PickupType pickupType { get => m_PickupType; set => m_PickupType = pickupType; }
 
     private bool IsBoatLayer(int layer) => layer == LayerMask.NameToLayer("Boat");
 
@@ -44,6 +46,7 @@ public class CarryDino : MonoBehaviour, ICarrier
 
     public bool TryToPickup()
     {
+        Debug.Log("Try");
         bool value = false;
         if (!pickupOrigin) pickupOrigin = transform;
         Collider[] _hits = Physics.OverlapSphere(
@@ -55,6 +58,7 @@ public class CarryDino : MonoBehaviour, ICarrier
         for (int i = 0; i < _hits.Length; i++)
         {
             var col = _hits[i];
+            Debug.Log(col);
             if (!col) continue;
 
             var pickup = col.GetComponent<IPickupable>();
@@ -62,7 +66,6 @@ public class CarryDino : MonoBehaviour, ICarrier
             JumperMovement();
             
             pickup.TryPickup(this);
-            CurrentWeight = pickup.Weight;
 
             _hits[i] = null;
         }
