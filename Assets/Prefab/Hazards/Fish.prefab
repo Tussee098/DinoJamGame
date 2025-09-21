@@ -48,9 +48,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1841250152934766633, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -365090023044253990, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
       propertyPath: m_Name
       value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364364799541027750, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473945432971116544, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137350315050304580, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277137359957010946, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987086093058175530, guid: 3bdb6c13e1311d446b95163813bff55f, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

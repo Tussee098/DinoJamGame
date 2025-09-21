@@ -15,7 +15,6 @@ public class CarryDino : MonoBehaviour, ICarrier
     public GameManager gameManager;
     private DinoAnimationBridge m_anim;
 
-    public IPickupable Current { get; private set; }
     private PickupType m_PickupType;
     public PickupType pickupType { get => m_PickupType; set => m_PickupType = pickupType; }
 
@@ -39,7 +38,7 @@ public class CarryDino : MonoBehaviour, ICarrier
     }
     private void OnBoatContact()
     {
-        m_PickupType = PickupType.None;
+        
         var dinoOxygen = gameObject.GetComponent<DinoOxygen>();
         var dinoMovement = gameObject.GetComponent<PlayerMovement>();
         
@@ -53,6 +52,7 @@ public class CarryDino : MonoBehaviour, ICarrier
             default:
                 break;
         }
+        m_PickupType = PickupType.None;
         dinoOxygen.ResetOxygen();
         dinoMovement.StartSwimPhase();
     }
@@ -75,8 +75,10 @@ public class CarryDino : MonoBehaviour, ICarrier
             Debug.Log(col);
             if (!col) continue;
 
-            var pickup = col.GetComponent<IPickupable>();
+            var pickup = col.GetComponent<Pickup>();
+            Debug.Log(pickup);
             m_PickupType = pickup.Type;
+            Debug.Log("Picking up: " + m_PickupType);
             JumperMovement();
             
             pickup.TryPickup(this);
