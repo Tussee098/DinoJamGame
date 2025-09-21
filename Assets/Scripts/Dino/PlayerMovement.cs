@@ -112,13 +112,21 @@ namespace Player {
             }
             float h = Input.GetAxis("Horizontal") * tmpSpeed;
 
+            if (h != 0f)
+            {
+                m_anim.PlaySwimSide(true);
+            }
+            else
+            {
+                m_anim.PlaySwimSide(false);
+            }
             rb.linearVelocity = new Vector3(h * dt, rb.linearVelocity.y, rb.linearVelocity.z);
         }
 
         private void SwimmingControl(float dt)
         {
             float v = Input.GetAxis("Vertical") * SwimmingSpeed;
-
+            
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, v * dt, rb.linearVelocity.z);
         }
         private void JumpingControl()
@@ -207,7 +215,8 @@ namespace Player {
             gameObject.GetComponent<HurtableDino>().enabled = false;
             //Change face
             gameObject.GetComponentInChildren<DinoFaceBridge>().SetFace(DinoFaceBridge.FaceEnum.Hurt);
-            
+
+            m_anim.PlayHit();
         }
 
         private void ResetIframesTimer()
