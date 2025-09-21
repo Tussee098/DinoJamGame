@@ -2,7 +2,7 @@
 - Project name: DinoJamGame
 - Unity version: Unity 6000.0.33f1
 - Active game object:
-  - Name: Audio Source
+  - Name: Text (TMP)
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
