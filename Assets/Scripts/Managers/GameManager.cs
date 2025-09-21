@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public AudioSource DiveLoop;
     public AudioSource CreditLoop;
 
+    public AudioSource ButtonPressSound;
+
     private void Start()
     {
         BoatBoardsRemaining = GameObject.FindGameObjectsWithTag("BoatBoard").Length;
@@ -33,9 +35,11 @@ public class GameManager : MonoBehaviour
         m_playerMovement.enabled = true;
         m_dinoOxygen.enabled = true;
         MainMenu.enabled = false;
+        ButtonNoisePlayed();
     }
     public void OnCreditsButtonClick()
     {
+        ButtonNoisePlayed();
         MainMenu.gameObject.SetActive(false);
         Credits.gameObject.SetActive(true);
     }
@@ -45,11 +49,19 @@ public class GameManager : MonoBehaviour
         HowToPlay.gameObject.SetActive(false);
         Credits.gameObject.SetActive(false);
         m_playerMovement.enabled = false;
+        ButtonNoisePlayed();
     }
+
+    private void ButtonNoisePlayed()
+    {
+        ButtonPressSound.Play();
+    }
+
     public void OnHowtoPlayClick()
     {
         MainMenu.gameObject.SetActive(false);
         HowToPlay.gameObject.SetActive(true);
+        ButtonNoisePlayed();
     }
 
     public void RepairBoat()

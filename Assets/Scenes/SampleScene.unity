@@ -225,7 +225,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 858f0b4dcb31dea4fbabc566ae6b7d49, type: 3}
   m_Resource: {fileID: 8300000, guid: 858f0b4dcb31dea4fbabc566ae6b7d49, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5677,6 +5677,7 @@ MonoBehaviour:
   TitleLoop: {fileID: 277797783}
   DiveLoop: {fileID: 684599961}
   CreditLoop: {fileID: 1981358409}
+<<<<<<< HEAD
 --- !u!1 &809392343
 GameObject:
   m_ObjectHideFlags: 0
@@ -5806,6 +5807,9 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+  ButtonPressSound: {fileID: 18959768}
+>>>>>>> 129694686dda89ec5d9f71f269a3dfa2ee289726
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
