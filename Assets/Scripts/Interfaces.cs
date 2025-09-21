@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface IPickupable
 {
+    PickupType Type { get; }
     bool TryPickup(ICarrier instigator);
     
 }

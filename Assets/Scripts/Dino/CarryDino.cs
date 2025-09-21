@@ -12,7 +12,9 @@ public class CarryDino : MonoBehaviour, ICarrier
 
     private readonly Collider2D[] _hits = new Collider2D[8];
 
+    public GameManager gameManager;
     private DinoAnimationBridge m_anim;
+
     public IPickupable Current { get; private set; }
     private PickupType m_PickupType;
     public PickupType pickupType { get => m_PickupType; set => m_PickupType = pickupType; }
@@ -37,16 +39,27 @@ public class CarryDino : MonoBehaviour, ICarrier
     }
     private void OnBoatContact()
     {
-        Debug.Log("OnBoatContact");
+        m_PickupType = PickupType.None;
         var dinoOxygen = gameObject.GetComponent<DinoOxygen>();
         var dinoMovement = gameObject.GetComponent<PlayerMovement>();
+        
+        switch (m_PickupType) {
+            case PickupType.RepairBoard:
+                gameManager.RepairBoat();
+                break;
+            case PickupType.OxygenTank:
+                dinoOxygen.IncreaseOxygen();
+                break;
+            default:
+                break;
+        }
         dinoOxygen.ResetOxygen();
         dinoMovement.StartSwimPhase();
     }
 
     public bool TryToPickup()
     {
-        Debug.Log("Try");
+        if (m_PickupType != PickupType.None) return false;
         bool value = false;
         if (!pickupOrigin) pickupOrigin = transform;
         Collider[] _hits = Physics.OverlapSphere(
@@ -62,7 +75,7 @@ public class CarryDino : MonoBehaviour, ICarrier
             if (!col) continue;
 
             var pickup = col.GetComponent<IPickupable>();
-
+            m_PickupType = pickup.Type;
             JumperMovement();
             
             pickup.TryPickup(this);

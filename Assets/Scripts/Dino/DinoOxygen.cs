@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class DinoOxygen : MonoBehaviour
 {
     public float MaxOxygen;
+    public float MaxOxygenIncrement;
     private float m_CurrentDinoOxygen;
 
     [Range(0f, 1f)] public float value = 0f; // 0 = transparent, 1 = fully blue
@@ -38,5 +39,10 @@ public class DinoOxygen : MonoBehaviour
             // TODO - Respawn.
             Debug.Log("No Oxygen");
         }
+    }
+
+    internal void IncreaseOxygen()
+    {
+        MaxOxygen += MaxOxygenIncrement;
     }
 }

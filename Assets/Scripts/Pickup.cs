@@ -4,17 +4,20 @@ namespace Assets.Scripts
 {
     public enum PickupType
     {
-        RepairBoard = 0,
-        OxygenTank = 1,
+        None = 0,
+        RepairBoard = 1,
+        OxygenTank = 2,
     }
 
     public class Pickup : MonoBehaviour, IPickupable
     {
         [SerializeField]
-        public PickupType type;
+        private PickupType m_type;
+
+        public PickupType Type => m_type;
+
         public bool TryPickup(ICarrier instigator)
         {
-            instigator.pickupType = type;
             Object.Destroy(gameObject);
             return true;
         }
