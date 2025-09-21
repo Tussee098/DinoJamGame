@@ -20,16 +20,7 @@ namespace Hazards {
         // Update is called once per frame
         void Update()
         {
-            
-            float fDirection = 1f;
-            if (m_direction == DirectionEnum.Left) fDirection *= -1f;
-
-            transform.Translate(fDirection * speed * Time.deltaTime, 0, 0);
-        }
-
-        public void SetDirection(DirectionEnum direction)
-        {
-            m_direction = direction;
+            transform.Translate(speed * Time.deltaTime, 0, 0);
         }
     }
 }

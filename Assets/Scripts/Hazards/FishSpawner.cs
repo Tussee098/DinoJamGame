@@ -17,6 +17,10 @@ namespace Hazards {
         void Start()
         {
             m_currentCooldown = Cooldown;
+            if (direction == DirectionEnum.Left)
+            {
+                gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
+            }
         }
 
         // Update is called once per frame
@@ -34,8 +38,6 @@ namespace Hazards {
         {
             GameObject newFish = Instantiate(fishPrefab, spawnPoint);
             Fish fishScript = newFish.GetComponent<Fish>();
-
-            fishScript.SetDirection(direction);
         }
     }
 }
