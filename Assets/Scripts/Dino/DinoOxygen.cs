@@ -11,12 +11,14 @@ public class DinoOxygen : MonoBehaviour
     public Transform SpawnPoint;
 
     public float RespawnTimer;
+    private float m_currentRespawnTimer;
 
     [Range(0f, 1f)] public float value = 0f; // 0 = transparent, 1 = fully blue
     public Image blueOverlay;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        m_currentRespawnTimer = RespawnTimer;
         ResetOxygen();
     }
     // Update is called once per frame
@@ -39,19 +41,21 @@ public class DinoOxygen : MonoBehaviour
             c.a = Mathf.Clamp(0.8f - (m_CurrentDinoOxygen / MaxOxygen),0f,0.8f);
             blueOverlay.color = c;
 
-            if (m_CurrentDinoOxygen <= 0f)
-            {
-                Respawn();
-            }
+            
         }else
         {
             // ShowAsdead
-            RespawnTimer -= Time.deltaTime;
+            m_currentRespawnTimer -= Time.deltaTime;
+            if(m_currentRespawnTimer < 0f)
+            {
+                Respawn();
+            }
         }
     }
 
     private void Respawn()
     {
+        m_currentRespawnTimer = RespawnTimer;
         gameObject.transform.position = SpawnPoint.position;
         // Play deathSound?
     }

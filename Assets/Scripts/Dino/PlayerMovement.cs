@@ -207,7 +207,6 @@ namespace Player {
 
         public void Hurt()
         {
-            Debug.Log("hurt");
             ResetIframesTimer();
             hurting = true;
             movementImpaired = true;
@@ -217,6 +216,13 @@ namespace Player {
             gameObject.GetComponentInChildren<DinoFaceBridge>().SetFace(DinoFaceBridge.FaceEnum.Hurt);
 
             m_anim.PlayHit();
+            if(m_swimming)
+            {
+                m_anim.StartSwim();
+            } else
+            {
+                m_anim.StartWalk();
+            }
         }
 
         private void ResetIframesTimer()
