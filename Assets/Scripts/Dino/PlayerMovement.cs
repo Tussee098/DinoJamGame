@@ -112,7 +112,7 @@ namespace Player {
             }
             float h = Input.GetAxis("Horizontal") * tmpSpeed;
 
-            if (h != 0f)
+            if (h != 0f && m_swimming)
             {
                 m_anim.PlaySwimSide(true);
             }
