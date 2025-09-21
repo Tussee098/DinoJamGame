@@ -21,6 +21,11 @@ namespace Hazards {
         void Update()
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
+
+            if(transform.position.x < -17f && transform.position.x > 13f)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

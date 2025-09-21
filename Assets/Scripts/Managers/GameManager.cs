@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnCreditsButtonClick()
     {
+        ButtonNoisePlayed();
         MainMenu.gameObject.SetActive(false);
         Credits.gameObject.SetActive(true);
     }
