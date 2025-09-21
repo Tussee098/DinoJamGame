@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     public Canvas HowToPlay;
     public Canvas Credits;
 
+    public AudioSource TitleIntro;
+    public AudioSource TitleLoop;
+    public AudioSource DiveLoop;
+    public AudioSource CreditLoop;
+
     private void Start()
     {
         BoatBoardsRemaining = GameObject.FindGameObjectsWithTag("BoatBoard").Length;
@@ -22,13 +27,15 @@ public class GameManager : MonoBehaviour
     }
     public void OnPlayButtonClick()
     {
+        TitleLoop.Stop();
+        TitleIntro.Stop();
+        DiveLoop.Play();
         m_playerMovement.enabled = true;
         m_dinoOxygen.enabled = true;
         MainMenu.enabled = false;
     }
     public void OnCreditsButtonClick()
     {
-
         MainMenu.gameObject.SetActive(false);
         Credits.gameObject.SetActive(true);
     }
@@ -47,6 +54,8 @@ public class GameManager : MonoBehaviour
 
     public void RepairBoat()
     {
+        Debug.Log("Repair Boat");
+        Debug.Log(BoatBoardsRemaining);
         BoatBoardsRemaining--;
     }
 }

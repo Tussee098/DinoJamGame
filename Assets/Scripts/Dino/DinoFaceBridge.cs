@@ -18,7 +18,6 @@ public class DinoFaceBridge : MonoBehaviour
     public void SetFace(FaceEnum face)
     {
         float offset = 0f;
-        Debug.Log(face);
         switch (face)
         {
             case FaceEnum.Normal:

@@ -905,15 +905,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.689999
+      value: -15.79
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.2089076
+      value: -9.94
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5.47
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1890,6 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDino: {fileID: 1619266615}
+  BoatBoardsRemaining: 0
   MainMenu: {fileID: 1573092846}
   HowToPlay: {fileID: 547358427}
   Credits: {fileID: 478525185}
@@ -3313,7 +3314,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.27
+      value: 11.45
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3321,7 +3322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3409,7 +3410,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.449999
+      value: -15.68
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3417,7 +3418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.05
       objectReference: {fileID: 0}
     - target: {fileID: 3350737225800287200, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3514,6 +3515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxOxygen: 20
+  MaxOxygenIncrement: 0
   value: 0
   blueOverlay: {fileID: 765666556}
 --- !u!4 &1642351272 stripped
@@ -4872,6 +4874,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 797973976}
+    - target: {fileID: 2198552835479360450, guid: 5cd4ca1e826dca14688ebdf18e50fe34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHowtoPlayClick
+      objectReference: {fileID: 0}
     - target: {fileID: 2759675973876636630, guid: 5cd4ca1e826dca14688ebdf18e50fe34, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

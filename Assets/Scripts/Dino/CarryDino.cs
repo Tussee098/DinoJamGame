@@ -60,6 +60,7 @@ public class CarryDino : MonoBehaviour, ICarrier
     public bool TryToPickup()
     {
         if (m_PickupType != PickupType.None) return false;
+        Debug.Log(m_PickupType);
         bool value = false;
         if (!pickupOrigin) pickupOrigin = transform;
         Collider[] _hits = Physics.OverlapSphere(
@@ -81,6 +82,7 @@ public class CarryDino : MonoBehaviour, ICarrier
             pickup.TryPickup(this);
 
             _hits[i] = null;
+            break;
         }
 
         return value;
