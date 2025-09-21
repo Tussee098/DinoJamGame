@@ -157,5 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 5
   m_currentCooldown: 0
-  fishPrefab: {fileID: 3496697149749587561, guid: 31856401ee265824e9af3af194a62597, type: 3}
+  direction: 0
+  fishPrefab: {fileID: 3790806019976108013, guid: 2c0d8d8158cc80f438df7802edeb697c, type: 3}
   spawnPoint: {fileID: 3350737225800287200}

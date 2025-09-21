@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject PlayerDino;
     private PlayerMovement m_playerMovement;
+    private DinoOxygen m_dinoOxygen;
     
     public Canvas MainMenu;
     public Canvas HowToPlay;
@@ -13,10 +14,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         m_playerMovement = PlayerDino.GetComponent<PlayerMovement>();
+        m_dinoOxygen = PlayerDino.GetComponent<DinoOxygen>();
     }
     public void OnPlayButtonClick()
     {
         m_playerMovement.enabled = true;
+        m_dinoOxygen.enabled = true;
         MainMenu.enabled = false;
     }
     public void OnCreditsButtonClick()

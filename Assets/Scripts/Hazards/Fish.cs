@@ -15,7 +15,7 @@ namespace Hazards {
         }
 
         public float speed;
-        public DirectionEnum m_direction;
+        private DirectionEnum m_direction;
 
         // Update is called once per frame
         void Update()
