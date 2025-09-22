@@ -12,6 +12,8 @@ namespace Player
 
         public LayerMask HazardMask => m_hazardMask;
 
+        public AudioSource HurtSound;
+
 
         public void Update()
         {
@@ -45,6 +47,7 @@ namespace Player
         public void Hurt(IHazard hazard)
         {
             gameObject.GetComponent<PlayerMovement>().Hurt();
+            HurtSound.Play();
             // Cancel movement for a bit
         }
     }

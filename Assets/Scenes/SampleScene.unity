@@ -10242,6 +10242,8 @@ MonoBehaviour:
   MaxOxygenIncrement: 5
   SpawnPoint: {fileID: 1645050316}
   RespawnTimer: 3
+  DeathSound: {fileID: 1402351482}
+  DepletingOxygenNoise: {fileID: 334522292}
   value: 0
   blueOverlay: {fileID: 765666556}
 --- !u!1001 &1629912604
@@ -14260,6 +14262,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 305138936}
+    - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: jumpForce
       value: 12
       objectReference: {fileID: 0}
@@ -14287,6 +14293,10 @@ PrefabInstance:
       propertyPath: SwimmingSpeed
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
+      propertyPath: PropellerSound
+      value: 
+      objectReference: {fileID: 99230577}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: jumpBufferTime
       value: 0.05
@@ -14415,6 +14425,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5906912863808129249, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
+      propertyPath: HurtSound
+      value: 
+      objectReference: {fileID: 322054552}
     - target: {fileID: 6149049070866320174, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -14508,9 +14522,25 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8870531566419973432, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
+      propertyPath: PickupNoise
+      value: 
+      objectReference: {fileID: 326341556}
+    - target: {fileID: 8870531566419973432, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
+      propertyPath: PickupPlank
+      value: 
+      objectReference: {fileID: 1901268690}
+    - target: {fileID: 8870531566419973432, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
+      propertyPath: PlankRepair
+      value: 
+      objectReference: {fileID: 2095028851}
+    - target: {fileID: 8870531566419973432, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 797973976}
+    - target: {fileID: 8870531566419973432, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
+      propertyPath: PickupOxygenTank
+      value: 
+      objectReference: {fileID: 716113761}
     - target: {fileID: 8969934522164912124, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.122

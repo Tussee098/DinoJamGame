@@ -1,3 +1,5 @@
+using Assets.Scripts;
+using Player;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +14,9 @@ public class DinoOxygen : MonoBehaviour
 
     public float RespawnTimer;
     private float m_currentRespawnTimer;
+
+    public AudioSource DeathSound;
+    public AudioSource DepletingOxygenNoise;
 
     [Range(0f, 1f)] public float value = 0f; // 0 = transparent, 1 = fully blue
     public Image blueOverlay;
@@ -38,13 +43,18 @@ public class DinoOxygen : MonoBehaviour
 
         if(m_CurrentDinoOxygen > 0f) {
             Color c = blueOverlay.color;
-            c.a = Mathf.Clamp(0.8f - (m_CurrentDinoOxygen / MaxOxygen),0f,0.8f);
+            c.a = Mathf.Clamp(0.8f - (m_CurrentDinoOxygen / MaxOxygen), 0f, 0.8f);
             blueOverlay.color = c;
-
+            if (m_CurrentDinoOxygen < 10f)
+            {
+                DepletingOxygenNoise.Play();
+            }
             
-        }else
+        } else
         {
-            // ShowAsdead
+            DeathSound.Play();
+            gameObject.GetComponent<PlayerMovement>().enabled = false;
+            
             m_currentRespawnTimer -= Time.deltaTime;
             if(m_currentRespawnTimer < 0f)
             {
@@ -55,9 +65,9 @@ public class DinoOxygen : MonoBehaviour
 
     private void Respawn()
     {
+        gameObject.GetComponent<CarryDino>().GameObjectPickup.GetComponent<Pickup>().Respawn();
         m_currentRespawnTimer = RespawnTimer;
         gameObject.transform.position = SpawnPoint.position;
-        // Play deathSound?
     }
 
     internal void IncreaseOxygen()

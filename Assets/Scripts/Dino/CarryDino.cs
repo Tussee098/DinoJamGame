@@ -15,8 +15,14 @@ public class CarryDino : MonoBehaviour, ICarrier
     public GameManager gameManager;
     private DinoAnimationBridge m_anim;
 
+    public GameObject GameObjectPickup;
     private PickupType m_PickupType;
     public PickupType pickupType { get => m_PickupType; set => m_PickupType = pickupType; }
+
+    public AudioSource PickupNoise;
+    public AudioSource PickupOxygenTank;
+    public AudioSource PickupPlank;
+    public AudioSource PlankRepair;
 
     private bool IsBoatLayer(int layer) => layer == LayerMask.NameToLayer("Boat");
 
@@ -44,6 +50,7 @@ public class CarryDino : MonoBehaviour, ICarrier
         
         switch (m_PickupType) {
             case PickupType.RepairBoard:
+                PlankRepair.Play();
                 gameManager.RepairBoat();
                 break;
             case PickupType.OxygenTank:
@@ -59,6 +66,7 @@ public class CarryDino : MonoBehaviour, ICarrier
 
     public bool TryToPickup()
     {
+        PickupNoise.Play();
         if (m_PickupType != PickupType.None) return false;
         Debug.Log(m_PickupType);
         bool value = false;
@@ -78,9 +86,25 @@ public class CarryDino : MonoBehaviour, ICarrier
             var pickup = col.GetComponent<Pickup>();
             Debug.Log(pickup);
             m_PickupType = pickup.Type;
+
+            switch (m_PickupType)
+            {
+                case PickupType.RepairBoard:
+                    PickupPlank.Play();
+                    break;
+                case PickupType.OxygenTank:
+                    PickupOxygenTank.Play();
+                    break;
+                default:
+                    break;
+            }
+
             Debug.Log("Picking up: " + m_PickupType);
             JumperMovement();
-            
+
+            GameObjectPickup = pickup.gameObject;
+
+
             pickup.TryPickup(this);
 
             _hits[i] = null;

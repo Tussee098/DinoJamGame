@@ -15,11 +15,15 @@ namespace Assets.Scripts
         private PickupType m_type;
 
         public PickupType Type => m_type;
-
         public bool TryPickup(ICarrier instigator)
         {
-            Object.Destroy(gameObject);
+
+            gameObject.SetActive(false);
             return true;
+        }
+        public void Respawn()
+        {
+            gameObject.SetActive(true);
         }
     }
 }

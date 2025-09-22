@@ -46,6 +46,9 @@ namespace Player {
 
         private DinoAnimationBridge m_anim;
 
+        public AudioSource JumpSound;
+        public AudioSource PropellerSound;
+
         void Start()
         {
             m_flutterCharges = maxflutterCharges;
@@ -118,6 +121,7 @@ namespace Player {
             }
             else
             {
+                PropellerSound.Play();
                 m_anim.PlaySwimSide(false);
             }
             rb.linearVelocity = new Vector3(h * dt, rb.linearVelocity.y, rb.linearVelocity.z);
@@ -166,6 +170,7 @@ namespace Player {
                 Vector3 v = rb.linearVelocity; v.y = 0f; rb.linearVelocity = v;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 jumpBufferTimer = 0f; coyoteTimer = 0f;
+                JumpSound.Play();
                 m_anim.PlayJump();
             }
         }
