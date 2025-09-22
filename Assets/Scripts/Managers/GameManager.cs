@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Canvas MainMenu;
     public Canvas HowToPlay;
     public Canvas Credits;
+    public Canvas Won;
 
     public AudioSource TitleIntro;
     public AudioSource TitleLoop;
@@ -69,5 +70,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Repair Boat");
         Debug.Log(BoatBoardsRemaining);
         BoatBoardsRemaining--;
+        if (BoatBoardsRemaining == 0)
+        {
+            GameEnding();
+        }
+    }
+
+    private void GameEnding()
+    {
+        
     }
 }
