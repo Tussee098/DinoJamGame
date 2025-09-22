@@ -1253,6 +1253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plank (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1314,6 +1318,10 @@ PrefabInstance:
     - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
       propertyPath: m_Name
       value: Plank (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10863,6 +10871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plank (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10924,6 +10936,10 @@ PrefabInstance:
     - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
       propertyPath: m_Name
       value: Plank (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12315,8 +12331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You saved our DINO friend! We still don''t know what to name it... If
-    you know what they are called, please tell us!
+  m_text: 'You saved Butiki, our Dino friend!
 
 
     Thanks for playing'

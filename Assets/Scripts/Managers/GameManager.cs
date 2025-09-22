@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     private void GameEnding()
     {
-        
+        Debug.Log("GamEnd");
+        Won.gameObject.SetActive(true);
     }
 }
