@@ -65,7 +65,9 @@ public class DinoOxygen : MonoBehaviour
 
     private void Respawn()
     {
-        gameObject.GetComponent<CarryDino>().GameObjectPickup.GetComponent<Pickup>().Respawn();
+        var carrydino = gameObject.GetComponent<CarryDino>();
+        carrydino.pickupType = PickupType.None;
+        carrydino.GameObjectPickup.GetComponent<Pickup>().Respawn();
         m_currentRespawnTimer = RespawnTimer;
         gameObject.transform.position = SpawnPoint.position;
         var playerMovement = gameObject.GetComponent<PlayerMovement>();
