@@ -235,5 +235,12 @@ namespace Player {
             m_iFramesTimer = iFramesTime;
             m_movementLossTimer = movementLossTime;
         }
+        public void RespawnReset()
+        {
+            m_iFramesTimer = 0;
+            m_movementLossTimer = 0;
+            hurting = false;
+            movementImpaired = false;
+        }
     }
 }
