@@ -10532,8 +10532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4beb83e85cd0ada49bb024bf1cacde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxOxygen: 20
-  MaxOxygenIncrement: 5
+  MaxOxygen: 30
+  MaxOxygenIncrement: 22
   SpawnPoint: {fileID: 1645050316}
   RespawnTimer: 3
   DeathSound: {fileID: 1402351482}
@@ -14925,7 +14925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: iFramesTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: RunningSpeed
@@ -14945,7 +14945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: movementLossTime
-      value: 3
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: maxflutterCharges
