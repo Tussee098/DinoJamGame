@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4262c3f5c21bd94428abe5df17cd8a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 5
+  Cooldown: 7.5
   m_currentCooldown: 0
   direction: 0
   fishPrefab: {fileID: 3790806019976108013, guid: 2c0d8d8158cc80f438df7802edeb697c, type: 3}
