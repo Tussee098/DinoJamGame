@@ -2852,6 +2852,10 @@ PrefabInstance:
       value: FishSpawner (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
+      propertyPath: Cooldown
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: direction
       value: 0
       objectReference: {fileID: 0}
@@ -9623,6 +9627,10 @@ PrefabInstance:
       value: FishSpawner (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
+      propertyPath: Cooldown
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: direction
       value: 0
       objectReference: {fileID: 0}
@@ -12827,6 +12835,10 @@ PrefabInstance:
       value: FishSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
+      propertyPath: Cooldown
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: direction
       value: 1
       objectReference: {fileID: 0}
@@ -13023,7 +13035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: Cooldown
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8066308869430632996, guid: 1cec34ff4af9d01438b9294a9c206e84, type: 3}
       propertyPath: direction
