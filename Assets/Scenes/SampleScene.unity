@@ -1255,7 +1255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1321,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10873,7 +10873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10939,7 +10939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719319523394907078, guid: 8d686d73111ae314c98990226c934ae3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15606,15 +15606,25 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 481553405341078517, guid: 7a7a71fbd45f9174081fa4538c483ee9, type: 3}
       propertyPath: m_text
-      value: 'Help Dino repair his ship. Dive into the the depth and carry the boards
-        up.
+      value: 'Help Butiki, our Dino friend repair his ship. Dive into the the depth
+        and carry the boards up.
 
-        But be careful, he doesn''t have alot of oxygen. Maybe there
-        are some ways to increase his oxygen in the depths too.
+        But be careful, he doesn''t have alot of
+        oxygen. Maybe there are some ways to increase his oxygen in the depths too.
 
 
-        When close
-        to an object press Left MouseButton to pick it up.'
+        Pickup
+        items and take them back to the ship.
+
+        - Repair Boards are to help
+        Butiki repair his boat.
+
+        - Oxygen Tanks increases the max amount
+        of oxygen in Butiki''s Scuba Suit.
+
+
+        When close to an object press
+        Left MouseButton to pick it up.'
       objectReference: {fileID: 0}
     - target: {fileID: 1813963029611796778, guid: 7a7a71fbd45f9174081fa4538c483ee9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
