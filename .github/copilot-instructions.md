@@ -2,7 +2,7 @@
 - Project name: DinoJamGame
 - Unity version: Unity 6000.0.33f1
 - Active game object:
-  - Name: GameManager
+  - Name: GameUI
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
