@@ -124,14 +124,14 @@ namespace Player {
                 PropellerSound.Play();
                 m_anim.PlaySwimSide(false);
             }
-            rb.linearVelocity = new Vector3(h * dt, rb.linearVelocity.y, rb.linearVelocity.z);
+            rb.linearVelocity = new Vector3(h, rb.linearVelocity.y, rb.linearVelocity.z);
         }
 
         private void SwimmingControl(float dt)
         {
             float v = Input.GetAxis("Vertical") * SwimmingSpeed;
             
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, v * dt, rb.linearVelocity.z);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, v, rb.linearVelocity.z);
         }
         private void JumpingControl()
         {

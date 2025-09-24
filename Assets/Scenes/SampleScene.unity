@@ -15938,11 +15938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: RunningSpeed
-      value: 900
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: SwimmingSpeed
-      value: 600
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3107575390763439331, guid: ae7c11cf393a0a54886b355dc6fe6178, type: 3}
       propertyPath: PropellerSound
